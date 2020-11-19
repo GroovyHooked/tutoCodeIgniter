@@ -24,7 +24,7 @@ class Site extends CI_Controller {
 			$this->email->to('thomascariot@gmail.com');
 			$this->email->subject($this->input->post('title'));
 			$this->email->message($this->input->post('message'));
-			#$this->email->send();
+			
 			if($this->email->send()) {
 				$data['result_class'] = "alert-success";
 				$data['result_message'] = "Merci de nous avoir envoyé ce mail. Nous y répondrons dans les meilleurs délais.";
