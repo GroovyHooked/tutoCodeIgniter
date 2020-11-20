@@ -9,9 +9,14 @@ $config = array(
 			'rules' => 'required'
 		),
 		array(
-			'field' => 'email',
+			'field' => 'email1',
 			'label' => 'E-mail',
 			'rules' => array('valid_email', 'required')
+		),
+		array(
+			'field' => 'email2',
+			'label' => 'Confirmation E-mail',
+			'rules' => array('valid_email', 'required', 'matches[email1]')
 		),
 		array(
 			'field' => 'title',
@@ -21,6 +26,18 @@ $config = array(
 		array(
 			'field' => 'message',
 			'label' => 'Message',
+			'rules' => 'required'
+		)
+	),
+	'site/connexion' => array(
+		array(
+			'field' => 'username',
+			'label' => "Nom d'utilisateur",
+			'rules' => 'required'
+		),
+		array(
+			'field' => 'password',
+			'label' => 'Mot de passe',
 			'rules' => 'required'
 		)
 	)

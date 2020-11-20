@@ -15,12 +15,20 @@
 
 		<div class="form-group">
 			<?= form_label("Votre e-mail&nbsp;:", "email", ['class' => "col-md-2 control-label "]) ?>
-			<div class="col-md-10 <?= empty( form_error('email')) ?'':'has-error' ?>">
-				<?= form_input(['name' => "email", 'id' => "email", 'type' => 'email', 'class' => 'form-control'], set_value('email')) ?>
-				<span class="help-block"><?= form_error('email'); ?></span>
+			<div class="col-md-10 <?= empty( form_error('email1')) ?'':'has-error' ?>">
+				<?= form_input(['name' => "email1", 'id' => "email1", 'type' => 'email', 'class' => 'form-control'], set_value('email1')) ?>
+				<span class="help-block"><?= form_error('email1'); ?></span>
 			</div>
 		</div>
-
+		<!-- Confirmation du mail utilisateur -->
+		<div class="form-group">
+			<?= form_label("Confirmation de votre e-mail&nbsp;:", "email", ['class' => "col-md-2 control-label "]) ?>
+			<div class="col-md-10 <?= empty( form_error('email2')) ?'':'has-error' ?>">
+				<?= form_input(['name' => "email2", 'id' => "email2", 'type' => 'email', 'class' => 'form-control'], set_value('email2')) ?>
+				<span class="help-block"><?= form_error('email2'); ?></span>
+			</div>
+		</div>
+		<!-- ******************************** -->
 		<div class="form-group">
 			<?= form_label("Titre&nbsp;:", "title", ['class' => "col-md-2 control-label "]) ?>
 			<div class="col-md-10 <?= empty( form_error('title')) ?'':'has-error' ?>">

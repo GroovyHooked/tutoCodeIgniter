@@ -2,10 +2,52 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Site extends CI_Controller {
+	function panneau() {
+		$data["title"] = "Panneau";
+		if($this->auth_user->is_connected) {
+			$this->load->view('common/header', $data);
+			$this->load->view('site/panneau', $data);
+			$this->load->view('common/footer', $data);
+		} 
+	}
+	function deconnexion() {
+		$this->auth_user->logout();
+		redirect('index');
+	}
+	public function connexion() {
+		$this->load->helper("form");
+		$this->load->library('form_validation');
+
+		$data["title"] = "Identification";
+
+		if($this->form_validation->run()) {
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$this->auth_user->login( $username, $password);
+			if($this->auth_user->is_connected) {
+				redirect('index');
+			} else {
+				$data['login_error'] = "Échec de l'authentification";
+			}
+		}
+		$this->load->view('common/header', $data);
+		$this->load->view('site/connexion', $data);
+		$this->load->view('common/footer', $data);
+	}
+	public function session_test() {
+		$this->session->count ++;
+		echo"Valeur :" . $this->session->count;
+	}
 	public function index() {
 		$data["title"] = "Page d'accueil";
 		$this->load->view('common/header',$data);
 		$this->load->view('site/index', $data);
+		$this->load->view('common/footer', $data);
+	}
+	public function apropos() {
+		$data["title"] = "À propos";
+		$this->load->view('common/header',$data);
+		$this->load->view('site/apropos', $data);
 		$this->load->view('common/footer', $data);
 	}
 	public function contact() {
@@ -24,7 +66,7 @@ class Site extends CI_Controller {
 			$this->email->to('thomascariot@gmail.com');
 			$this->email->subject($this->input->post('title'));
 			$this->email->message($this->input->post('message'));
-			
+
 			if($this->email->send()) {
 				$data['result_class'] = "alert-success";
 				$data['result_message'] = "Merci de nous avoir envoyé ce mail. Nous y répondrons dans les meilleurs délais.";
