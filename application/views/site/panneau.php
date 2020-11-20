@@ -1,8 +1,7 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1><?=$title?></h1>
-		<?php echo heading("Welcome", 3);?>
-		<p>Ceci est un exercice</p>
+		<?php echo heading("Panneau de configuration", 3);?>
 	</div>
 </div>
 <div class="container">
@@ -11,7 +10,7 @@
 
 	<p>^^^^^^</p>
 	<p>{ @-@ }</p>
-	<p>{  |  }</p>
+	<p>&ensp;&ensp;&ensp;{  |  }</p>
 	<p>{__=__}</p>
 </div>
 

@@ -8,7 +8,7 @@ class Site extends CI_Controller {
 			$this->load->view('common/header', $data);
 			$this->load->view('site/panneau', $data);
 			$this->load->view('common/footer', $data);
-		} 
+		}
 	}
 	function deconnexion() {
 		$this->auth_user->logout();
@@ -25,9 +25,9 @@ class Site extends CI_Controller {
 			$password = $this->input->post('password');
 			$this->auth_user->login( $username, $password);
 			if($this->auth_user->is_connected) {
-				redirect('index');
+				redirect('panneau');
 			} else {
-				$data['login_error'] = "Échec de l'authentification";
+				redirect('index');
 			}
 		}
 		$this->load->view('common/header', $data);
