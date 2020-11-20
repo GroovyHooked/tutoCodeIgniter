@@ -30,7 +30,6 @@
 				<li><?= anchor('apropos', "À propos");?></li>
 				<?php if($this->auth_user->is_connected) : ?>
 					<li><?= anchor('panneau', "Panneau de config"); ?></li>
-				<?php else: ?>
 				<?php endif; ?>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
