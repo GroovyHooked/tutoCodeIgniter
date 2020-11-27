@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Site extends CI_Controller {
-	function panneau() {
+	public function panneau() {
 		$data["title"] = "Panneau";
 		if($this->auth_user->is_connected) {
 			$this->load->view('common/header', $data);
@@ -10,7 +10,7 @@ class Site extends CI_Controller {
 			$this->load->view('common/footer', $data);
 		}
 	}
-	function deconnexion() {
+	public function deconnexion() {
 		$this->auth_user->logout();
 		redirect('index');
 	}

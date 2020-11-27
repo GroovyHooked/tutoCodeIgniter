@@ -27,6 +27,7 @@
 			<ul class="nav navbar-nav">
 				<li><?= anchor('index', "Accueil");?></li>
 				<li><?= anchor('contact', "Contact");?></li>
+				<li><?= anchor('blog/index', "Blog");?></li>
 				<li><?= anchor('apropos', "À propos");?></li>
 				<?php if($this->auth_user->is_connected) : ?>
 					<li><?= anchor('panneau', "Panneau de config"); ?></li>
